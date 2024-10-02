@@ -26,12 +26,6 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Output'
+    PathtoPublish: ''
     ArtifactName: 'assetFile'
     publishLocation: 'Container'
-- task: UiPathAssets@4
-  inputs:
-    orchestratorConnection: 'OrchestratorCICD'
-    folderName: 'AdmiralDemo'
-    assetActionType: 'Deploy'
-    csvFile: 'assetFile.txt'
