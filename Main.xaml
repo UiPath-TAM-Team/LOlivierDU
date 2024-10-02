@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,11504</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1303.3333333333333,12110</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -140,7 +140,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Add following dependencies:&#xA;* UiPath.IntelligentOCR.Activities - &#xA;(This will add DU activites under App Integration &gt; Document Understanding and will also add Taxonomy Manager under design ribbon/menu.&#xA;Once above dependency is added, click on the Taxonomy Manager and define taxonomy (document type and fields)&#xA;&#xA;* UiPath.DocumentUnderstanding.ML.Activities&#xA;(This will add ML related and Generative AI related activities)&#xA;&#xA;NOTE: Please enter your API Key for the following activities:&#xA;- Digitize Document &gt; UiPath Document OCR&#xA;- Classify Document Scope &gt; Intelligent Keyword Classifier&#xA;- Data Extraction Scope &gt; Machine Learning Extractor and Form Extractor&#xA;" DisplayName="DU Main Sequence" sap:VirtualizedContainerService.HintSize="886.6666666666666,11439.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Add following dependencies:&#xA;* UiPath.IntelligentOCR.Activities - &#xA;(This will add DU activites under App Integration &gt; Document Understanding and will also add Taxonomy Manager under design ribbon/menu.&#xA;Once above dependency is added, click on the Taxonomy Manager and define taxonomy (document type and fields)&#xA;&#xA;* UiPath.DocumentUnderstanding.ML.Activities&#xA;(This will add ML related and Generative AI related activities)&#xA;&#xA;NOTE: Please enter your API Key for the following activities:&#xA;- Digitize Document &gt; UiPath Document OCR&#xA;- Classify Document Scope &gt; Intelligent Keyword Classifier&#xA;- Data Extraction Scope &gt; Machine Learning Extractor and Form Extractor&#xA;" DisplayName="DU Main Sequence" sap:VirtualizedContainerService.HintSize="886.6666666666666,12045.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="folderPath" />
       <Variable x:TypeArguments="p9:DocumentTaxonomy" Name="taxonomy" />
@@ -152,10 +152,10 @@
       <Variable x:TypeArguments="p7:ClassificationResult[]" Name="classificationResults" />
       <Variable x:TypeArguments="p7:ClassificationResult[]" Name="validatedClassificationResults" />
       <Variable x:TypeArguments="p7:ExtractionResult" Name="extractionResults" />
-      <Variable x:TypeArguments="x:String" Default="nnnNXL/H0QcW9TafwSxggB4zRCesDrYxthCXbMxaGxcVsEnnLnGbnePXwY2oSG67ufK5upK31qMeKNo80m06VA==" Name="APIKey" />
+      <Variable x:TypeArguments="x:String" Name="APIKey" />
       <Variable x:TypeArguments="p7:ExtractionResult" Name="validatedExtractionResults" />
-      <Variable x:TypeArguments="x:String" Default="https://ai-uipath-we-b.deskover.com/public/mlskills/b88825c5-774a-4ace-86ed-a1706b88976a/3e1d88e5-7e51-45de-9119-140f1b8f7a8b/frenchlolivier" Name="InvoiceExtractorEndpoint" />
-      <Variable x:TypeArguments="x:String" Default="https://ai-uipath-we-b.deskover.com/public/mlskills/b88825c5-774a-4ace-86ed-a1706b88976a/3e1d88e5-7e51-45de-9119-140f1b8f7a8b/invoiceclassifier" Name="InvoiceClassifierEndpoint" />
+      <Variable x:TypeArguments="x:String" Name="InvoiceExtractorEndpoint" />
+      <Variable x:TypeArguments="x:String" Name="InvoiceClassifierEndpoint" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -163,13 +163,28 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get Input Files" sap:VirtualizedContainerService.HintSize="824.6666666666666,512.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Get Input Files" sap:VirtualizedContainerService.HintSize="824.6666666666666,1066.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="INVOICE_CLASSIFIER_ENDPOINT" CacheStrategy="None" DisplayName="Get Asset" FolderPath="AdmiralDemo" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[InvoiceClassifierEndpoint]</OutArgument>
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
+      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="INVOICE_EXTRACTOR_ENDPOINT" CacheStrategy="None" DisplayName="Get Asset" FolderPath="AdmiralDemo" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String">[InvoiceExtractorEndpoint]</OutArgument>
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
+      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="APIKEY" CacheStrategy="None" DisplayName="Get Asset" FolderPath="AdmiralDemo" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
+        <ui:GetRobotAsset.Value>
+          <OutArgument x:TypeArguments="x:String" />
+        </ui:GetRobotAsset.Value>
+      </ui:GetRobotAsset>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Getting input files from the folder&quot;]" />
       <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;Getting input files from the folder&quot;]" />
       <Assign DisplayName="Assign Folder Path" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
@@ -192,7 +207,7 @@
       <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;Loading Taxonomy&quot;]" />
       <p:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="388,108" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_2" Taxonomy="[taxonomy]" />
     </Sequence>
-    <ui:ForEach x:TypeArguments="x:String" DisplayName="Read each file from the folder" sap:VirtualizedContainerService.HintSize="824.6666666666666,9972" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[folderPath]">
+    <ui:ForEach x:TypeArguments="x:String" DisplayName="Read each file from the folder" sap:VirtualizedContainerService.HintSize="824.6666666666666,10024" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[folderPath]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -568,26 +583,10 @@
                       <Sequence.Variables>
                         <Variable x:TypeArguments="p7:ExtractionResult" sap2010:Annotation.AnnotationText="Human validated extraction results used for training." Name="validatedExtractionResults" />
                         <Variable x:TypeArguments="p:DocumentValidationActionData" sap2010:Annotation.AnnotationText="Orchestrator Validation Action that needs to be human-handled in order to continue the process." Name="validationAction" />
-                        <Variable x:TypeArguments="x:String" Name="actionCatalog">
-                          <Variable.Default>
-                            <Literal x:TypeArguments="x:String">Invoices</Literal>
-                          </Variable.Default>
-                        </Variable>
-                        <Variable x:TypeArguments="x:String" Name="actionFolderPath">
-                          <Variable.Default>
-                            <Literal x:TypeArguments="x:String">LOlivierDU</Literal>
-                          </Variable.Default>
-                        </Variable>
-                        <Variable x:TypeArguments="x:String" Name="docStorageBucketName">
-                          <Variable.Default>
-                            <Literal x:TypeArguments="x:String">InvoicesStore</Literal>
-                          </Variable.Default>
-                        </Variable>
-                        <Variable x:TypeArguments="x:String" Name="docStorageBucketPath">
-                          <Variable.Default>
-                            <Literal x:TypeArguments="x:String">LOlivierDU</Literal>
-                          </Variable.Default>
-                        </Variable>
+                        <Variable x:TypeArguments="x:String" Default="Invoices" Name="actionCatalog" />
+                        <Variable x:TypeArguments="x:String" Default="LOlivierDU" Name="actionFolderPath" />
+                        <Variable x:TypeArguments="x:String" Default="InvoicesStore" Name="docStorageBucketName" />
+                        <Variable x:TypeArguments="x:String" Default="LOlivierDU" Name="docStorageBucketPath" />
                         <Variable x:TypeArguments="x:String" Default="Output" Name="downloadDirectoryPath" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>

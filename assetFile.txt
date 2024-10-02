@@ -1,0 +1,4 @@
+name,type,value,description
+APIKEY,text,nnnNXL/H0QcW9TafwSxggB4zRCesDrYxthCXbMxaGxcVsEnnLnGbnePXwY2oSG67ufK5upK31qMeKNo80m06VA==,
+INVOICE_CLASSIFIER_ENDPOINT,text,https://ai-uipath-we-b.deskover.com/public/mlskills/b88825c5-774a-4ace-86ed-a1706b88976a/3e1d88e5-7e51-45de-9119-140f1b8f7a8b/invoiceclassifier
+INVOICE_EXTRACTOR_ENDPOINT,text,https://ai-uipath-we-b.deskover.com/public/mlskills/b88825c5-774a-4ace-86ed-a1706b88976a/3e1d88e5-7e51-45de-9119-140f1b8f7a8b/frenchlolivier
