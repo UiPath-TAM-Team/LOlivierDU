@@ -8,17 +8,19 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
-- task: UiPathDeploy@4
+- task: UiPathPack@4
   inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    outputType: 'Process'
     orchestratorConnection: 'OrchestratorCICD'
-    packagesPath: '$(Build.SourcesDirectory)'
-    folderName: 'AdmiralDemo'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Output'
     ArtifactName: 'LOlivierPacked'
     publishLocation: 'Container'
     
