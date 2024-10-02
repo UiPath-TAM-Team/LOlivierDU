@@ -24,3 +24,14 @@ steps:
     ArtifactName: 'LOlivierDU'
     publishLocation: 'Container'
     
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Output'
+    ArtifactName: 'assetFile'
+    publishLocation: 'Container'
+- task: UiPathAssets@4
+  inputs:
+    orchestratorConnection: 'OrchestratorCICD'
+    folderName: 'AdmiralDemo'
+    assetActionType: 'Deploy'
+    csvFile: 'assetFile.txt'
